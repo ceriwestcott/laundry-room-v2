@@ -1,0 +1,6 @@
+<div *ngIf="availableMachines$ | async as availableMachines">
+  <app-machine-status [machines]="availableMachines"></app-machine-status>
+  <app-user-input-form class="p-3"></app-user-input-form>
+</div>
+
+<button (click)="onClick()">Click</button>
