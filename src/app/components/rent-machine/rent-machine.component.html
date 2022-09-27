@@ -1,0 +1,28 @@
+<form
+  class="example-form col"
+  [formGroup]="rentMachineForm"
+  (submit)="onSubmit()"
+>
+  <h4>Basic mat-select</h4>
+  <hr />
+  <mat-form-field *ngIf="allAvailableMachines$ | async as availableMachines">
+    <mat-label>Available Machines</mat-label>
+    <mat-select formControlName="machineId">
+      <mat-option
+        *ngFor="let machine of availableMachines"
+        [value]="machine.id"
+      >
+        {{ machine.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Machine user</mat-label>
+    <mat-select formControlName="userId">
+      <mat-option *ngFor="let user of users" [value]="user.id">
+        {{ user.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Submit</button>
+</form>

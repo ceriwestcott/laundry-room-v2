@@ -1,8 +1,31 @@
-<div *ngFor="let item of machines">
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">{{ item.name }}</h5>
-      <p class="card-text">{{ item.status }}</p>
-    </div>
+<mat-card class="card">
+  <mat-card-title class="text-center">{{ machines.name }}</mat-card-title>
+  <hr />
+  <div *ngIf="machines.isInUse === deviceState; else deviceNotInUser">
+    <mat-card-content class="text-center p-3">
+      <p>This machine is currently being used by:</p>
+      <mat-icon class="material-icons-outlined icon-2x"
+        >account_circle</mat-icon
+      >
+
+      <p class="bold-text pt-3">{{ machines.currentUser }}</p>
+    </mat-card-content>
   </div>
-</div>
+  <ng-template #deviceNotInUser>
+    <mat-card-content>
+      <h4>Device Type: {{ machines.device }}</h4>
+      <p>This machine is currently not in use.</p>
+    </mat-card-content>
+  </ng-template>
+
+  <mat-card-actions *ngIf="machines.isInUse !== deviceState">
+    <button
+      mat-flat-button
+      color="primary"
+      class="w-100"
+      (click)="onClick(machines.id, 'Ceri')"
+    >
+      RENT
+    </button>
+  </mat-card-actions>
+</mat-card>

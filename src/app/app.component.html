@@ -1,6 +1,11 @@
-<div *ngIf="availableMachines$ | async as availableMachines">
-  <app-machine-status [machines]="availableMachines"></app-machine-status>
-  <app-user-input-form class="p-3"></app-user-input-form>
+<div
+  *ngIf="availableMachines$ | async as availableMachines"
+  class="d-flex mvh-100 h-100 d-flex align-items-center justify-content-center flex-wrap"
+>
+  <div *ngFor="let item of availableMachines" class="w-50">
+    <app-machine-status
+      (rentMachine)="onRentMachine($event)"
+      [machines]="item"
+    ></app-machine-status>
+  </div>
 </div>
-
-<button (click)="onClick()">Click</button>

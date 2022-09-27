@@ -6,7 +6,13 @@ const selectMachineStatus =
   createFeatureSelector<MachineStatusState>('machineStatus');
 
 export const selectAllMachines = selectMachineStatus;
-export const selectAllAvailableMachines = createSelector(
+
+export const getAllMachinesSelector = createSelector(
+  selectAllMachines,
+  (state) => state.machines
+);
+
+export const getAllNonInUseMachinesSelector = createSelector(
   selectAllMachines,
   (state) => state.machines.filter((m) => m.isInUse === DeviceState.OFF)
 );

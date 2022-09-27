@@ -22,6 +22,7 @@ export const machineStatusReducer = createReducer(
     };
   }),
   on(updateMachineStatus, (state, { machineId, name }) => {
+    debugger;
     const machines = state.machines.map((m) => {
       if (m.id === machineId)
         return {

@@ -11,9 +11,11 @@ import { MachineStatusComponent } from './components/machine-status/machine-stat
 import { UserINputFormComponent } from './components/user-input-form/user-input-form.component';
 import { UIModule } from './modules/ui/ui.module';
 import { machineStatusReducer } from './state/machine-status';
+import { CardContainerComponent } from './components/card-container/card-container.component';
+import { RentMachineComponent } from './components/rent-machine/rent-machine.component';
 
 @NgModule({
-  declarations: [AppComponent, UserINputFormComponent, MachineStatusComponent],
+  declarations: [AppComponent, UserINputFormComponent, MachineStatusComponent, CardContainerComponent, RentMachineComponent],
   imports: [
     BrowserModule,
     UIModule,
